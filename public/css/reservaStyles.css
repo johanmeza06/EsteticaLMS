@@ -1,0 +1,134 @@
+/* paleta de colores */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root{
+    --blanco: #fff;
+    --RosaOscuro: #ffc0d0;
+    --RosaClaro: #faeaea;
+    --GrisClaro: #fad9f0;
+    --grisOscuro: #1f2124;
+    --rojoPastel: #ff6961;
+    --verdePastel: #77dd77;
+
+    /* hover colors */
+    --verdeOscuro: #5dc460;
+    --rosaOscuro1: #ff99b3;
+    --rosaOscuro2: #e6718e;
+    --rojoOscuro: #e2504c;
+
+    --fuente: font-family: 'Roboto', sans-serif;
+
+}
+
+/* Globales */
+body{
+    /* background-color: var(--GrisClaro) !important; */
+    background: rgb(255,235,240);
+    background: linear-gradient(180deg, rgba(255,235,240,1) 0%, rgba(255,231,231,1) 51%, rgba(255,250,250,1) 100%);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+
+
+/* BARRA DE NAVEGACION */
+
+.estetica-flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estetica-logo{
+    width: 40%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.nav-link{
+    color: var(--rosaOscuro1) !important;
+}
+
+.nav-link:hover{
+    color: var(--rosaOscuro2) !important;
+    font-family: var(--fuente) !important;
+}
+
+/* BOTONES */
+
+.btn-agregar{
+    background-color: var(--RosaOscuro) !important;
+    border-color: var(--RosaOscuro) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--grisOscuro) !important;
+}
+.btn-agregar:hover{
+    background-color: var(--rosaOscuro1) !important;
+    border-color: var(--rosaOscuro1) !important;
+    color: var(--grisOscuro) !important;
+}
+
+.btn-eliminar{
+    background-color: var(--rojoPastel) !important;
+    border-color: var(--rojoPastel) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--grisOscuro) !important;
+    border-radius: 50px !important;
+
+}
+.btn-eliminar:hover{
+    background-color: var(--rojoOscuro) !important;
+    border-color: var(--rojoOscuro) !important;
+    color: var(--grisOscuro) !important;
+}
+
+.btn-editar{
+    background-color: var(--verdePastel) !important;
+    border-color: var(--verdePastel) !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: var(--grisOscuro) !important;
+    border-radius: 50px !important;
+}
+.btn-editar:hover{
+    background-color: var(--verdeOscuro) !important;
+    border-color: var(--verdeOscuro) !important;
+    color: var(--grisOscuro) !important;
+}
+
+/* INPUTS */
+
+input{
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--blanco)!important;
+}
+
+input:focus{
+    border-color: var(--rosaOscuro1) !important;
+}
+
+/* TEXT AREA */
+
+textarea{
+    outline: none !important;
+    box-shadow: none !important;
+    background-color: var(--blanco)!important;
+    resize: none !important;
+    height: 60px !important;
+}
+textarea:focus{
+    border-color: var(--rosaOscuro1) !important;
+}
+
+
+/* h1 */
+
+.titulo-h1{
+    font-family: var(--fuente);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--rosaOscuro1) !important;
+}
