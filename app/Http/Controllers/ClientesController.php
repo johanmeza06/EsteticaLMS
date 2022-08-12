@@ -66,8 +66,6 @@ class ClientesController extends Controller
         Clientes::insert($datosCliente);
         // redireccionar a la vista de lista de clientes con un mensaje de exito
         return redirect('cliente')->with('mensaje', 'Cliente agregado con exito');
-    
-        
     }
 
     /**
@@ -94,7 +92,6 @@ class ClientesController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         // validacion de campos
         $campos = [
             'nombre' => 'required|string|max:100',
@@ -102,17 +99,12 @@ class ClientesController extends Controller
             'email' => 'required|email',
             'telefono' => 'required|string|max:20',
         ];
-
         $mensaje = [
             'required' => 'El campo :attribute es requerido',
             'string' => 'El campo :attribute debe ser un texto',
             'email' => 'El campo :attribute debe ser un email valido',
         ];
-
-
         $this->validate($request, $campos, $mensaje);
-
-
         //recepcionar todos los datos execpto el token y el metodo
         $datosCliente = request()->except(['_token', '_method']);
         //buscar registro por id y ejecuta la actualizacion

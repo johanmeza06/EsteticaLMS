@@ -18,15 +18,9 @@ class CreateReservasTable extends Migration
             $table->string('fecha');
             $table->string('hora');
             $table->string('descripcion');
-            
             $table->unsignedBigInteger('cliente_id');
-
             $table->timestamps();
-
-            $table->foreign('cliente_id')
-            ->references('id')
-            ->on('clientes')
-            ->onDelete('cascade');
+            $table->foreign('cliente_id')->references('id')->on('clientes')->onDelete('cascade');
 
         });
     }

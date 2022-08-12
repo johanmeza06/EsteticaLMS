@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Clientes</title>
 </head>
-
 <body>
+    {{-- Muestra el nav, es decir muestra un layout de otra vista o otro archivo.php --}}
     @extends('layouts.app')
-
-
-
-
+    {{-- muestra el contenido con la vista del nav --}}
     @section('content')
     <div class="container">
-
+        {{-- se realiza la respectiva validacion si existe el mensaje --}}
         @if(Session::has('mensaje'))
+        {{-- Se realiza un alert con la validacion de los campos vacios --}}
         <div class="alert alert-success alert-dismissible fade show align-items-center" role="alert">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
-                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
-            </svg>
-
             {{Session::get('mensaje')}}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         @endif
-
-
+        {{-- Link que nos manda la vista create --}}
         <a class="btn btn-primary mb-3 btn-agregar" href="{{ url('reserva/create')}}">
             Agregar Cita
         </a>
-
+        {{-- Tabla donde se muestra todos los datos en la base de datos --}}
         <div class="table-responsive ">
             <table class="table table-light table-hover table-bordered">
                 <thead class="thead-light">
@@ -47,6 +38,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- Se realiza un ciclo Foreach donde vamos a iterar los valores de reserva --}}
                     @foreach( $reservaDatos as $reserva )
                     <tr>
                         <div class=" align-items-center">
@@ -57,16 +49,18 @@
                         <td>{{ $reserva->hora}}</td>
                         <td>{{ $reserva->descripcion}}</td>
                         <td>
+                            {{-- Se realiza un ciclo Foreach donde vamos a iterar los valores de cliente --}}
                             @foreach($clienteDatos as $cliente)
+                            {{-- Validacion donde verifica si el id del cliente es igual a la clave foranea --}}
                             @if($cliente->id == $reserva->cliente_id)
                             {{ $cliente->nombre}}
                             @endif
                             @endforeach
                         </td>
-
         </div>
         <td>
             <div class="d-flex flex-wrap align-items-center">
+                {{-- Formulario para eliminar datos a traves de un boton --}}   
                 <form action="{{url('/reserva/'.$reserva->id) }}" method="post" class="d-inline m-1">
                     @csrf
                     {{-- convertir en metodo DELETE --}}
@@ -83,5 +77,4 @@
 </body>
 </div>
 @endsection
-
 </html>
